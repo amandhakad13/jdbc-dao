@@ -22,4 +22,13 @@ public class StudentDAO {
 			return isInsert;
 		}
 		
+		
+		public int delete(int id) throws SQLException {
+			Connection con = DBConnection.getConnection();
+			PreparedStatement pstmt = con.prepareStatement("delete from student_info where id = ?");
+			pstmt.setInt(1, id);
+			int isDelete = pstmt.executeUpdate();
+			
+			return isDelete;
+		}
 }
